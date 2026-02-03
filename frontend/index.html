@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Model AI Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="logo">Thinking<span class="highlight">Three</span></div>
+            <p class="subtitle">Concurrent Analysis by ChatGPT, Gemini & DeepSeek</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <textarea id="questionInput" placeholder="Ask a question..." rows="3"></textarea>
+                
+                <div class="controls">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="imageInput" accept="image/*">
+                        <label for="imageInput" class="file-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                            <span>Add Image</span>
+                        </label>
+                        <span id="fileName"></span>
+                    </div>
+                    <button id="submitBtn">
+                        <span>Ask AI</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Consulting the council of AI...</p>
+            </div>
+
+            <div id="resultsArea" class="hidden">
+                <div class="best-answer-card">
+                    <div class="badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        Best Answer
+                    </div>
+                    <h2 id="bestModelName">Model Name</h2>
+                    <div id="bestAnswerContent" class="markdown-content"></div>
+                    <div class="reasoning">
+                        <strong>Why this won:</strong> <span id="winReason">Reasoning goes here...</span>
+                    </div>
+                </div>
+
+                <div class="other-answers-grid">
+                    <div class="answer-card" id="chatgptCard">
+                        <h3>ChatGPT</h3>
+                        <div class="content" id="chatgptContent"></div>
+                    </div>
+                    <div class="answer-card" id="geminiCard">
+                        <h3>Gemini</h3>
+                        <div class="content" id="geminiContent"></div>
+                    </div>
+                    <div class="answer-card" id="deepseekCard">
+                        <h3>DeepSeek</h3>
+                        <div class="content" id="deepseekContent"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
